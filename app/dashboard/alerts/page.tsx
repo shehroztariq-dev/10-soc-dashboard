@@ -1,37 +1,9 @@
+import Link from "next/link";
+import { alertsQueue } from "@/data/alerts";
+
 const filters = ["All", "Critical", "High", "Medium", "Investigating"];
 
-const alerts = [
-  {
-    name: "Impossible travel",
-    severity: "Critical",
-    owner: "A. Gomez",
-    status: "Investigating",
-  },
-  {
-    name: "Ransomware beacon",
-    severity: "High",
-    owner: "N. Patel",
-    status: "Blocked",
-  },
-  {
-    name: "Unusual logins",
-    severity: "Medium",
-    owner: "J. Silva",
-    status: "Monitoring",
-  },
-  {
-    name: "Container breakout",
-    severity: "Critical",
-    owner: "R. Bell",
-    status: "Escalated",
-  },
-  {
-    name: "Suspicious e-mail",
-    severity: "High",
-    owner: "E. Ray",
-    status: "Resolved",
-  },
-];
+const alerts = alertsQueue;
 
 const severityStyles: Record<string, string> = {
   Critical: "bg-rose-500/15 text-rose-300 ring-1 ring-inset ring-rose-500/30",
@@ -80,8 +52,14 @@ export default function AlertsPage() {
             </thead>
             <tbody className="divide-y divide-slate-800 bg-slate-900/60">
               {alerts.map((alert) => (
-                <tr key={alert.name} className="hover:bg-slate-800/60">
-                  <td className="px-4 py-3 text-slate-100">{alert.name}</td>
+                <tr key={alert.id} className="hover:bg-slate-800/60">
+                  <td className="px-4 py-3 text-slate-100">
+                    <Link
+                      href={`/dashboard/alerts/${alert.id}`}
+                      className="font-medium text-red-200 hover:text-red-100">
+                      {alert.name}
+                    </Link>
+                  </td>
                   <td className="px-4 py-3">
                     <span
                       className={[

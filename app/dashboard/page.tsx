@@ -13,8 +13,12 @@ export default function DashboardPage() {
     <div className="space-y-6">
       <section className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Overview</p>
-          <h3 className="mt-2 text-3xl font-semibold text-slate-50">Security posture</h3>
+          <p className="text-xs uppercase tracking-[0.28em] text-slate-400">
+            Overview
+          </p>
+          <h3 className="mt-2 text-3xl font-semibold text-slate-50">
+            Security posture
+          </h3>
         </div>
         <button className="rounded-xl border border-white/10 bg-slate-900 px-4 py-2 text-sm font-medium text-slate-100 transition hover:border-red-500/30 hover:text-red-200">
           Export report
@@ -44,30 +48,47 @@ export default function DashboardPage() {
               <p className="text-[10px] uppercase tracking-[0.28em] text-slate-400">
                 Top findings
               </p>
-              <h3 className="mt-2 text-xl font-semibold text-slate-50">Critical alerts</h3>
+              <h3 className="mt-2 text-xl font-semibold text-slate-50">
+                Critical alerts
+              </h3>
             </div>
           </div>
 
           <div className="space-y-3">
             {topAlerts.map((alert) => (
-              <div key={alert.id} className="rounded-xl border border-white/10 bg-slate-950/40 p-3">
+              <div
+                key={alert.id}
+                className="rounded-xl border border-white/10 bg-slate-950/40 p-3">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className={['inline-flex rounded-full px-2 py-1 text-[10px] font-medium uppercase tracking-[0.2em]', severityStyles[alert.severity] ?? 'bg-slate-700/60 text-slate-200'].join(' ')}>
+                      <span
+                        className={[
+                          "inline-flex rounded-full px-2 py-1 text-[10px] font-medium uppercase tracking-[0.2em]",
+                          severityStyles[alert.severity] ??
+                            "bg-slate-700/60 text-slate-200",
+                        ].join(" ")}>
                         {alert.severity}
                       </span>
                       <span className="text-[10px] uppercase tracking-[0.2em] text-slate-400">
                         {alert.id}
                       </span>
                     </div>
-                    <p className="mt-2 text-sm font-medium text-slate-100">{alert.name}</p>
-                    <p className="mt-1 text-xs text-slate-400">{alert.source} • {alert.asset}</p>
+                    <p className="mt-2 text-sm font-medium text-slate-100">
+                      {alert.name}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-400">
+                      {alert.source} • {alert.asset}
+                    </p>
                   </div>
-                  <span className="text-[11px] text-slate-400">{alert.time}</span>
+                  <span className="text-[11px] text-slate-400">
+                    {alert.time}
+                  </span>
                 </div>
 
-                <a href="#" className="mt-3 inline-flex text-xs font-medium text-red-300 hover:text-red-200">
+                <a
+                  href="#"
+                  className="mt-3 inline-flex text-xs font-medium text-red-300 hover:text-red-200">
                   View alert details →
                 </a>
               </div>

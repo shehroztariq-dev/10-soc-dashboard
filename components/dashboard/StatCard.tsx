@@ -5,7 +5,12 @@ type StatCardProps = {
   target: string;
 };
 
-export default function StatCard({ label, value, change, target }: StatCardProps) {
+export default function StatCard({
+  label,
+  value,
+  change,
+  target,
+}: StatCardProps) {
   const isImproving = change < 0;
   const deltaText = `${Math.abs(change).toFixed(1)}%`;
   const deltaTone = isImproving ? "text-emerald-400" : "text-red-400";
@@ -26,7 +31,11 @@ export default function StatCard({ label, value, change, target }: StatCardProps
         </div>
 
         <div className="rounded-full border border-white/10 bg-slate-950/60 px-2 py-1">
-          <span className={['inline-flex items-center gap-1 text-[11px] font-semibold', deltaTone].join(" ")}>
+          <span
+            className={[
+              "inline-flex items-center gap-1 text-[11px] font-semibold",
+              deltaTone,
+            ].join(" ")}>
             <span aria-hidden="true">{deltaArrow}</span>
             {deltaText}
           </span>

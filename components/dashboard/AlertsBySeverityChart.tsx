@@ -30,15 +30,23 @@ export default function AlertsBySeverityChart({
           <p className="text-[10px] uppercase tracking-[0.28em] text-slate-400">
             Threat posture
           </p>
-          <h3 className="mt-2 text-xl font-semibold text-slate-50">Alerts by severity</h3>
+          <h3 className="mt-2 text-xl font-semibold text-slate-50">
+            Alerts by severity
+          </h3>
         </div>
       </div>
 
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.18)" />
+          <CartesianGrid
+            strokeDasharray="3 3"
+            stroke="rgba(148,163,184,0.18)"
+          />
           <XAxis dataKey="severity" tick={{ fill: "#cbd5e1", fontSize: 12 }} />
-          <YAxis tick={{ fill: "#cbd5e1", fontSize: 12 }} allowDecimals={false} />
+          <YAxis
+            tick={{ fill: "#cbd5e1", fontSize: 12 }}
+            allowDecimals={false}
+          />
           <Tooltip
             cursor={{ fill: "rgba(148,163,184,0.08)" }}
             contentStyle={{
@@ -52,7 +60,9 @@ export default function AlertsBySeverityChart({
             {data.map((entry) => (
               <Cell
                 key={entry.severity}
-                fill={palette[entry.severity as keyof typeof palette] ?? "#94a3b8"}
+                fill={
+                  palette[entry.severity as keyof typeof palette] ?? "#94a3b8"
+                }
               />
             ))}
           </Bar>
