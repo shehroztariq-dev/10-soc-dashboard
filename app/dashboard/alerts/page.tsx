@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThreatFeed from "@/components/dashboard/ThreatFeed";
 import { alertsQueue } from "@/data/alerts";
 
 const filters = ["All", "Critical", "High", "Medium", "Investigating"];
@@ -38,6 +39,8 @@ export default function AlertsPage() {
           ))}
         </div>
       </section>
+
+      <ThreatFeed />
 
       <section className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70">
         <div className="overflow-x-auto">
