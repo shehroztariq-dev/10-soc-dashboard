@@ -12,8 +12,12 @@ export default function LogsPage() {
   return (
     <div className="space-y-6">
       <section>
-        <p className="text-xs uppercase tracking-[0.26em] text-slate-400">Logs</p>
-        <h3 className="mt-2 text-3xl font-semibold text-slate-50">Raw log viewer</h3>
+        <p className="text-xs uppercase tracking-[0.26em] text-slate-400">
+          Logs
+        </p>
+        <h3 className="mt-2 text-3xl font-semibold text-slate-50">
+          Raw log viewer
+        </h3>
       </section>
 
       <section className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/80">

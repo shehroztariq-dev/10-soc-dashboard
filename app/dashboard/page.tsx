@@ -1,15 +1,45 @@
 const metrics = [
-  { label: "Critical alerts", value: "12", delta: "+3 since yesterday", tone: "rose" },
-  { label: "Blocked attempts", value: "8.4K", delta: "-12% this week", tone: "cyan" },
+  {
+    label: "Critical alerts",
+    value: "12",
+    delta: "+3 since yesterday",
+    tone: "rose",
+  },
+  {
+    label: "Blocked attempts",
+    value: "8.4K",
+    delta: "-12% this week",
+    tone: "cyan",
+  },
   { label: "Mean response", value: "14m", delta: "within SLA", tone: "amber" },
   { label: "Incidents open", value: "7", delta: "2 escalated", tone: "violet" },
 ];
 
 const alerts = [
-  { name: "Data exfiltration spike", severity: "Critical", source: "EDR", time: "2 min ago" },
-  { name: "Privilege misuse", severity: "High", source: "IAM", time: "11 min ago" },
-  { name: "Suspicious PowerShell", severity: "Medium", source: "Endpoint", time: "21 min ago" },
-  { name: "Failed MFA fatigue", severity: "High", source: "Identity", time: "46 min ago" },
+  {
+    name: "Data exfiltration spike",
+    severity: "Critical",
+    source: "EDR",
+    time: "2 min ago",
+  },
+  {
+    name: "Privilege misuse",
+    severity: "High",
+    source: "IAM",
+    time: "11 min ago",
+  },
+  {
+    name: "Suspicious PowerShell",
+    severity: "Medium",
+    source: "Endpoint",
+    time: "21 min ago",
+  },
+  {
+    name: "Failed MFA fatigue",
+    severity: "High",
+    source: "Identity",
+    time: "46 min ago",
+  },
 ];
 
 const severityStyles: Record<string, string> = {
@@ -39,8 +69,7 @@ export default function DashboardPage() {
         {metrics.map((item) => (
           <div
             key={item.label}
-            className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-lg shadow-slate-950/20"
-          >
+            className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-lg shadow-slate-950/20">
             <div className="flex items-center justify-between">
               <p className="text-sm text-slate-400">{item.label}</p>
               <span
@@ -56,7 +85,9 @@ export default function DashboardPage() {
               />
             </div>
             <div className="mt-5 flex items-end justify-between">
-              <span className="text-3xl font-semibold text-slate-50">{item.value}</span>
+              <span className="text-3xl font-semibold text-slate-50">
+                {item.value}
+              </span>
             </div>
             <p className="mt-4 text-xs text-slate-400">{item.delta}</p>
           </div>
@@ -96,8 +127,7 @@ export default function DashboardPage() {
                         className={[
                           "inline-flex rounded-full px-2 py-1 text-xs font-medium",
                           severityStyles[alert.severity],
-                        ].join(" ")}
-                      >
+                        ].join(" ")}>
                         {alert.severity}
                       </span>
                     </td>
@@ -112,7 +142,9 @@ export default function DashboardPage() {
 
         <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
           <p className="text-sm text-slate-400">Coverage</p>
-          <h4 className="mt-1 text-xl font-semibold text-slate-100">Signal health</h4>
+          <h4 className="mt-1 text-xl font-semibold text-slate-100">
+            Signal health
+          </h4>
 
           <div className="mt-6 space-y-5">
             {[
@@ -140,7 +172,9 @@ export default function DashboardPage() {
               Response SLA
             </p>
             <div className="mt-3 flex items-end justify-between">
-              <span className="text-3xl font-semibold text-emerald-300">94%</span>
+              <span className="text-3xl font-semibold text-emerald-300">
+                94%
+              </span>
               <span className="text-sm text-emerald-400">On track</span>
             </div>
           </div>
